@@ -10,8 +10,9 @@ def index(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
         email = request.POST.get('email')
+        fullname = request.POST.get('fullname')
         send_mail(subject, message, settings.EMAIL_HOST_USER,
-                  [email], fail_silently=False)
-        return render(request, 'djangomail/email_sent.html', {'email': email})
+                  ['recivermail@gmail.com'], fail_silently=False)
+        return render(request, 'djangomail/email_sent.html', {'fullname': fullname})
 
     return render(request, 'djangomail/index.html', {})
